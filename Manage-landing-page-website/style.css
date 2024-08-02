@@ -1,96 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    --accent-400: hsl(12, 88%, 59%);
+    --accent-100: hsl(13, 100%, 96%);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+    --primary-400: hsl(228, 39%, 23%);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --neutral-100: hsl(232, 12%, 13%);
+    --neutral-900: hsl(0, 0%, 0%);
+
+    --font-family-primary:"Be Vietnam Pro", sans-serif;
+
+    --ff-body: var(--font-family-primary);
+    --ff-heading: var(--font-family-primary);
+
+    --fw-regular: 400;
+    --fw-semi-bold: 500;
+    --fw-bold: 700;
+
+    --fs-300: 0.8125rem;    /* 13px */       
+    --fs-400: 0.875rem;     /* 14px */
+    --fs-500: 0.9375rem;    /* 15px */
+    --fs-600: 1rem;         /* 16px */
+    --fs-700: 1.875rem;     /* 30px */
+    --fs-800: 2.5rem;       /* 40px */
+
+    --fs-body: var(--fs-400);
+    --fs-primary-heading: var(--fs-800);
+    --fs-nav: var(--fs-500);
+    --fs-button: var(--fs-300);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+@media (min-width: 50em) {      /* it is for large screen design */
+    :root {
+        --fs-body: var(--fs-500);
+        --fs-nav: var(--fs-300);
+    }
 }
-a:hover {
-  color: #535bf2;
+
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
+
+/* Remove default margin */
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Remove list styles on ul , ol elements  */
+
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* Set-core body defaults */
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* A elements that don't have a class get default */
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Make images easier to work with */
+
+img,picture,svg {
+    max-width: 100%;
+    display: block;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+/* Remove all animations, transitions and smooth */
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,*::before,*::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/* Utility classes */
