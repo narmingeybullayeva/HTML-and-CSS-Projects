@@ -126,37 +126,25 @@ svg {
   }
 }
 
-.container {
-  --max-width: 1110px;
-  --padding: 1rem;
-  /* This padding for mobile version */
-
-  width: min(var(--max-width), 100% - (var(--padding) * 2));
-  /* in this case padding multiply by 2 because each side have to 1 rem padding. */
-  margin-inline: auto;
-}
-
-.even-columns {
-  display: grid;
-  gap: 1rem;
-}
-
-@media (min-width: 50em) {
-  .even-columns {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-  }
-}
-/* There best practice @media query we have to use em 
-because em is valid when you zoom in and zoom out 
-for your browser,  */
-
 /* General styling */
 
 body {
   font-size: var(--fs-body);
   font-family: var(--ff-body);
   color: var(--primary-400);
+}
+
+/* ch -- "character" mənasına gəlir. 35ch vahidi, mətnin genişliyini mətnin uzunluğuna uyğunlaşdırır.
+35-75 simvol genişliyi olan mətnlər oxunması daha asan və gözlər üçün daha rahat olur.
+Dinamik ölçü: Font dəyişdikdə və ya fərqli şriftlər istifadə olunduqda belə, mətn qutusu oxunaqlı qalır, çünki genişlik avtomatik olaraq simvol ölçüsünə uyğunlaşır.*/
+
+p:not([class]) {
+  opacity: 0.7;
+  max-width: 32ch;
+}
+
+p[data-width="wide"] {
+  max-width: 42ch;
 }
 
 /* Button */
@@ -318,6 +306,38 @@ Yəni bu element öz sətirində tam eni tutur. */
   white-space: nowrap;
   border: 0;
 }
+
+.container {
+  --max-width: 1110px;
+  --padding: 1rem;
+  /* This padding for mobile version */
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  /* in this case padding multiply by 2 because each side have to 1 rem padding. */
+  margin-inline: auto;
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3rem);
+}
+
+/* margin-top: var(--flow-spacer, 1.5rem); bu yazılışın mənası
+əgər --floü-spacer-i tapmasan 1.5rem dəyər ver */
+
+@media (min-width: 50em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+/* There best practice @media query we have to use em 
+because em is valid when you zoom in and zoom out 
+for your browser,  */
 
 .text-primary-400 {
   color: var(--primary-400);
