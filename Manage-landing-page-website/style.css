@@ -291,6 +291,76 @@ Yəni bu element öz sətirində tam eni tutur. */
   .mobile-nav-toggle .icon-close {
     display: none;
   }
+
+  .cta {
+    text-align: center;
+  }
+
+  .jse-md {
+    margin: 0 auto;
+  }
+}
+/* Footer */
+.primary-footer {
+  --logo-color: var(--neutral-100);
+}
+
+/* footer navigation */
+
+.footer-nav {
+  columns: 2;
+}
+
+.footer-nav a {
+  color: var(--neutral-100);
+  text-decoration: none;
+}
+
+/* burada is yerine where de yaza bilerik */
+
+.footer-nav a:is(:hover, :focus) {
+  color: var(--accent-400);
+}
+
+/* social list */
+
+.social-list {
+  display: flex;
+  gap: var(--size-300);
+}
+
+.social-icon {
+  width: var(--size-600);
+  aspect-ratio: 1;
+  fill: var(--neutral-100);
+}
+
+.social-list a:is(:hover, :focus) .social-icon {
+  fill: var(--accent-400);
+}
+
+@media (min-width: 50em) {
+  .social-icon {
+    width: var(--size-500);
+  }
+}
+/* cta */
+
+.cta {
+  position: relative;
+  isolation: isolate;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: url("images/bg-tablet-pattern.svg"),
+  url("images/bg-tablet-pattern.svg");
+  background-position: -15rem -5rem, 80rem -42rem;
+  background-repeat: no-repeat;
+  opacity: 0.1;
 }
 
 /* Utility classes */
@@ -322,22 +392,33 @@ Yəni bu element öz sətirində tam eni tutur. */
   gap: 1rem;
 }
 
-:where(.flow :not(:first-child)) {
-  margin-top: var(--flow-spacer, 3rem);
-}
-
-/* margin-top: var(--flow-spacer, 1.5rem); bu yazılışın mənası
-əgər --floü-spacer-i tapmasan 1.5rem dəyər ver */
-
 @media (min-width: 50em) {
   .even-columns {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
-  }
+  } 
+
 }
 /* There best practice @media query we have to use em 
 because em is valid when you zoom in and zoom out 
 for your browser,  */
+
+.vertical-align-center {
+  align-items: center;
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3rem);
+}
+
+
+/* margin-top: var(--flow-spacer, 1.5rem); bu yazılışın mənası
+əgər --floü-spacer-i tapmasan 1.5rem dəyər ver */
+
 
 .text-primary-400 {
   color: var(--primary-400);
@@ -377,6 +458,10 @@ for your browser,  */
 
 .bg-neutral-400 {
   background-color: var(--neutral-400);
+}
+
+.bg-neutral-900 {
+  background-color: var(--neutral-900);
 }
 
 .fw-bold {
