@@ -11,7 +11,10 @@
     <header class="primary-header">
       <div class="container">
         <div class="nav-wrapper">
-          <a href="#"><img src="images/logo.svg" alt="Manage" /></a>
+          <a href="#">
+            <svg class="logo" width="146" hidden="24">
+              <use xlink:href="images/logo.svg#logo"></use></svg>
+          </a>
           <button
             class="mobile-nav-toggle"
             aria-controls="primary-navigation"
@@ -153,10 +156,10 @@
 
     <footer class="primary-footer padding-block-700 bg-neutral-900 text-neutral-100">
       <div class="container">
-        <div class="even-columns">
-          <div>
-            <a href="#"
-              ><svg class="icon" width="146" hidden="24">
+        <div class="primary-footer-wrapper">
+          <div class="primary-footer-logo-social">
+            <a href="#" aria-label="home"
+              ><svg class="logo" width="146" hidden="24">
                 <use xlink:href="images/logo.svg#logo"></use></svg
             ></a>
 
@@ -208,7 +211,7 @@
               </li>
             </ul>
           </div>
-          <div>
+          <div class="primary-footer-nav">
             <nav class="footer-nav">
               <ul
                 class="flow"
