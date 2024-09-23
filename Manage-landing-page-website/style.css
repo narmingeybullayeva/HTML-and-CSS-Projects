@@ -314,23 +314,34 @@ Yəni bu element öz sətirində tam eni tutur. */
   'logo-social';
 }
 
+.primary-footer-logo-social {
+  grid-area: logo-social;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: var(--size-700);
+}
+
+.primary-footer-nav {
+  grid-area: nav;
+}
+
+.primary-footer-form {
+  grid-area: form;
+}
+
 @media (min-width: 50em) {
   .primary-footer-wrapper {
     grid-template-areas: 
     'logo-social nav form';
   }
-}
 
-.primary-footer-wrapper > :nth-child(1) {
-  grid-area: logo-social;
-}
-
-.primary-footer-wrapper > :nth-child(2) {
-  grid-area: nav;
-}
-
-.primary-footer-wrapper > :nth-child(3) {
-  grid-area: form;
+  .primary-footer-logo-social {
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--size-700);
+  }
+  
 }
 
 @media (max-width: 50em ) {
@@ -343,6 +354,7 @@ Yəni bu element öz sətirində tam eni tutur. */
 
 .footer-nav {
   columns: 2;
+  gap: max(30vw, 2rem);
 }
 
 .footer-nav a {
