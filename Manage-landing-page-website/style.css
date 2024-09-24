@@ -12,7 +12,6 @@
   --neutral-900: hsl(232, 12%, 13%);
   --neutral-100: hsl(0, 0%, 100%);
 
-
   --font-family-primary: "Be Vietnam Pro", sans-serif;
 
   --ff-body: var(--font-family-primary);
@@ -177,6 +176,10 @@ When -1em is used, it reduces the size of the shadow, making it smaller and tigh
   color: var(--accent-400);
 }
 
+.button[data-shadow="none"] {
+  box-shadow: none;
+}
+
 .button:hover,
 .button:focus-visible {
   background-color: var(--accent-300);
@@ -263,7 +266,6 @@ Yəni bu stil yalnız ekran eni 50 em və ya daha kiçik olduqda aktiv olacaq. *
     color: var(--accent-400);
   }
 
-
   .primary-header[data-overlay]::before {
     content: "";
     position: fixed;
@@ -274,7 +276,7 @@ Yəni bu stil yalnız ekran eni 50 em və ya daha kiçik olduqda aktiv olacaq. *
   .primary-navigation[data-visible] {
     display: block;
   }
-  
+
   /* blok səviyyəli element kimi görünməsini təmin edir.
 Yəni bu element öz sətirində tam eni tutur. */
   .mobile-nav-toggle {
@@ -308,10 +310,10 @@ Yəni bu element öz sətirində tam eni tutur. */
 .primary-footer-wrapper {
   display: grid;
   gap: var(--size-700);
-  grid-template-areas: 
-  'form'
-  'nav'
-  'logo-social';
+  grid-template-areas:
+    "form"
+    "nav"
+    "logo-social";
 }
 
 .primary-footer-logo-social {
@@ -328,12 +330,32 @@ Yəni bu element öz sətirində tam eni tutur. */
 
 .primary-footer-form {
   grid-area: form;
+
+  display: grid;
+  align-content: space-between;
 }
+
+/* İstiqamət: justify-content əsas oxda (horizontal), align-content isə kəsişən oxda (vertikal) istifadə olunur.
+Tətbiq: justify-content fərdi elementlər arasında boşluq yaradır, align-content isə satırlar və ya sütunlar arasında boşluq yaradır. align-content yalnız bir neçə satır və ya sütun olduqda işləyir. */
+
+.primary-footer form {
+  display: flex;
+  gap: var(--size-200);
+}
+
+input:where([type="email"], [type="text"]) {
+  border-radius: 100vw;
+  border: 0;
+  padding: var(--size-300) var(--size-400);
+}
+
+/* .primary-footer-form input selektorunu input:where([type='email'], [type='text']) formasına çevirməyin əsas məqsədi performansı yaxşılaşdırmaq və yazılışın oxunaqlığını artırmaqdır. Bu dəyişikliyin bəzi əsas səbəbləri:
+
+Performans: :where() pseudo-sinfi spesifikliyi sıfıra endirir, yəni bu selektor üçün heç bir əlavə spesifiklik gətirmir. Bu da kodun daha çevik olmasına və xüsusilə daha böyük CSS fayllarında performansın optimallaşdırılmasına kömək edir. */
 
 @media (min-width: 50em) {
   .primary-footer-wrapper {
-    grid-template-areas: 
-    'logo-social nav form';
+    grid-template-areas: "logo-social nav form";
   }
 
   .primary-footer-logo-social {
@@ -341,10 +363,9 @@ Yəni bu element öz sətirində tam eni tutur. */
     align-items: center;
     gap: var(--size-700);
   }
-  
 }
 
-@media (max-width: 50em ) {
+@media (max-width: 50em) {
   .primary-footer-wrapper > * {
     margin-inline: auto;
   }
@@ -354,7 +375,7 @@ Yəni bu element öz sətirində tam eni tutur. */
 
 .footer-nav {
   columns: 2;
-  gap: max(30vw, 2rem);
+  gap: clamp(var(--size-200), 30vw, var(--size-900));
 }
 
 .footer-nav a {
@@ -386,7 +407,6 @@ Yəni bu element öz sətirində tam eni tutur. */
 }
 
 @media (min-width: 50em) {
-
   .social-list {
     gap: var(--size-300);
   }
@@ -408,7 +428,7 @@ Yəni bu element öz sətirində tam eni tutur. */
   z-index: -1;
   inset: 0;
   background-image: url("images/bg-tablet-pattern.svg"),
-  url("images/bg-tablet-pattern.svg");
+    url("images/bg-tablet-pattern.svg");
   background-position: -15rem -5rem, 80rem -42rem;
   background-repeat: no-repeat;
   opacity: 0.1;
@@ -447,8 +467,7 @@ Yəni bu element öz sətirində tam eni tutur. */
   .even-columns {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
-  } 
-
+  }
 }
 /* There best practice @media query we have to use em 
 because em is valid when you zoom in and zoom out 
@@ -466,10 +485,8 @@ for your browser,  */
   margin-top: var(--flow-spacer, 3rem);
 }
 
-
 /* margin-top: var(--flow-spacer, 1.5rem); bu yazılışın mənası
 əgər --floü-spacer-i tapmasan 1.5rem dəyər ver */
-
 
 .text-primary-400 {
   color: var(--primary-400);
