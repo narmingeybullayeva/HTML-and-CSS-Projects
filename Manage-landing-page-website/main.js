@@ -9,3 +9,13 @@ navToggle.addEventListener("click", () => {
   primaryNav.toggleAttribute("data-visible");
   primaryHeader.toggleAttribute("data-overlay");
 });
+
+const slider = new A11YSlider(document.querySelector(".slider"), {
+  arrows: true, // Next və Previous düymələrini aktiv etmək üçün
+  dots: true, // Dots üçün
+  responsive: {
+    520: {
+      dots: false, // Daha böyük ekranlarda dots-u deaktiv edə bilərsiniz
+    },
+  },
+});

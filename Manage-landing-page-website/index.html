@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.css" />
-    <script src="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.js" defer></script>
     <title>Vite App</title>
   </head>
   <body>
@@ -134,14 +133,14 @@
 
       <!-- | this line for separated utility classes from component classes -->
 
-      <section class="carousel | padding-block-700">
+      <section class="carousel | padding-block-700 text-center">
         <h2 class="fs-secondary-heading fw-bold">What they've said</h2>
         <!-- Carousel here -->
         <ul class="slider">
           <li>
             <img src="images/avatar-anisha.png" alt="">
   
-            <div class="slider-content | flow" style="--flow-spacer: 1rem">
+            <div class="slider-content  flow" style="--flow-spacer: 1rem">
               <h3 class="fw-bold">Anisha Li</h3>
               <p data-width="wide">“Manage has supercharged our team’s workflow. The ability to maintain visibility on
                 larger milestones at all times keeps
@@ -151,7 +150,7 @@
           <li>
             <img src="images/avatar-ali.png" alt="">
   
-            <div class="slider-content | flow" style="--flow-spacer: 1rem">
+            <div class="slider-content  flow" style="--flow-spacer: 1rem">
               <h3 class="fw-bold">Ali Bravo</h3>
               <p data-width="wide">“We have been able to cancel so many other subscriptions since using Manage. There is
                 no
@@ -163,7 +162,7 @@
           <li>
             <img src="images/avatar-richard.png" alt="">
   
-            <div class="slider-content | flow" style="--flow-spacer: 1rem">
+            <div class="slider-content  flow" style="--flow-spacer: 1rem">
               <h3 class="fw-bold">Richard Watts</h3>
               <p data-width="wide">“Manage allows us to provide structure and process. It keeps us organized and focused.
                 I
@@ -174,7 +173,7 @@
           <li>
             <img src="images/avatar-shanai.png" alt="">
   
-            <div class="slider-content | flow" style="--flow-spacer: 1rem">
+            <div class="slider-content  flow" style="--flow-spacer: 1rem">
               <h3 class="fw-bold">Shanai Gough</h3>
               <p data-width="wide">“Their software allows us to track, manage and collaborate on our projects from
                 anywhere.
@@ -287,19 +286,7 @@
         </div>
       </div>
     </footer>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const slider = new A11YSlider(document.querySelector('.slider'), {
-          arrows: true, // Next və Previous düymələrini aktiv etmək üçün
-          dots: true, // Dots üçün
-          responsive: {
-            768: {
-              dots: false // Daha böyük ekranlarda dots-u deaktiv edə bilərsiniz
-            }
-          }
-        });
-      });
-    </script>
-    <script type="module" src="/main.js"></script>
+    <script src="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.js" defer></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
