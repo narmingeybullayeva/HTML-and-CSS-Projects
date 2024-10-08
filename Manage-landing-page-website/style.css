@@ -434,6 +434,88 @@ Performans: :where() pseudo-sinfi spesifikliyi sıfıra endirir, yəni bu selekt
   opacity: 0.1;
 }
 
+/* numbered items */
+
+.numbered-items {
+  counter-reset: count;
+  width: fit-content;
+  margin-inline: auto;
+}
+/* burada counter-reset etmƏyimiz vacibdir çünki bir sonrakı list olarsa o nömrələnməyə davam edəcək
+ */
+
+.numbered-items li {
+  counter-increment: count;
+}
+
+.numbered-items div {
+  display: grid;
+  position: relative;
+  align-items: center;
+  column-gap: var(--size-300);
+  grid-template-columns: min-content 1fr;
+}
+
+.numbered-items__title {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  line-height: 1;
+}
+
+.numbered-items__body {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 30em) {
+  .numbered-items__body {
+    grid-column: 2 / -1;
+  }
+}
+
+.numbered-items div::before,
+.numbered-items div::after {
+  height: 40px;
+}
+
+.numbered-items div::before {
+  content: "0" counter(count);
+  display: flex;
+  align-items: center;
+  color: var(--neutral-100);
+  font-weight: var(--fw-bold);
+  background-color: var(--accent-400);
+  padding: 0 var(--size-500);
+  border-radius: 100vw;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+@media (max-width: 30em) {
+  .numbered-items div::after {
+    --bg: var(--accent-100);
+    content: "";
+    display: block;
+    z-index: -1;
+    border-radius: 100vw 0 0 100vw;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    box-shadow: 5em 0 0 var(--bg);
+    background: var(--bg);
+  }
+}
+
+/* Slider */
+
+.slider {
+  display: flex;
+}
+
+.slider > * {
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+
 /* Utility classes */
 
 .visually-hidden {
@@ -450,10 +532,10 @@ Performans: :where() pseudo-sinfi spesifikliyi sıfıra endirir, yəni bu selekt
 
 .container {
   --max-width: 1110px;
-  --padding: 1rem;
+  --container-padding: 1rem;
   /* This padding for mobile version */
 
-  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  width: min(var(--max-width), 100% - (var(--container-padding) * 2));
   /* in this case padding multiply by 2 because each side have to 1 rem padding. */
   margin-inline: auto;
 }
@@ -487,6 +569,24 @@ for your browser,  */
 
 /* margin-top: var(--flow-spacer, 1.5rem); bu yazılışın mənası
 əgər --floü-spacer-i tapmasan 1.5rem dəyər ver */
+
+.text-center {
+  text-align: center;
+}
+
+.text-center p {
+  margin-inline: auto;
+}
+
+@media (max-width: 50em){
+  .text-center-sm-only {
+    text-align: center;
+  }
+
+  .text-center-sm-only p {
+    margin-inline: auto;
+  }
+}
 
 .text-primary-400 {
   color: var(--primary-400);
@@ -571,6 +671,10 @@ for your browser,  */
 
 .padding-block-700 {
   padding-block: var(--size-700);
+}
+
+.margin-bottom-700 {
+  margin-block-end: var(--size-700)
 }
 
 .display-sm-none {
