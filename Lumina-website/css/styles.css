@@ -22,6 +22,12 @@ img {
     max-width: 100%;
 }
 
+/* Utility Classes */
+
+.bg-primary {
+    background-color: #fcf5e9;
+}
+
 /* Container */
 
 .container {
@@ -70,6 +76,21 @@ img {
     background-color: #fcf5e9;
     font-weight: 600;
 }
+/* Hero */
+
+.hero{
+    height: 31.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: rem;
+    line-height: 1.4;
+    font-weight: normal;
+}
 
 /* media query */
 
@@ -78,4 +99,12 @@ img {
         flex-direction: column;
         gap: 1.5rem;
     }
+
+    .hero {
+        height: 18.75rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem
+    };   
 }
