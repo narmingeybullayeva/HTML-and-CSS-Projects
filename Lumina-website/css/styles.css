@@ -99,6 +99,26 @@ img {
     font-weight: normal;
 }
 
+.gallery-flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.3rem;
+}
+
+.gallery-item {
+    width: calc(33.333% - 1.3rem);
+    border-radius: 10px;
+}
+
+.gallery-item img {
+    border-radius: 10px;
+}
+
+.gallery-item:hover {
+    opacity:0.9;
+}
+
 /* media query */
 
 @media(max-width: 768px) {
@@ -114,4 +134,8 @@ img {
     .hero h1 {
         font-size: 1.8rem
     };   
+
+    .gallery-item {
+        width: calc(50% - 20px);
+    }
 }
